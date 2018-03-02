@@ -8,6 +8,18 @@ const {
 
 const router = express.Router();
 
+// Api root
+router.get('/', (req, res) => {
+  const message = `Welcome to Todo API. All endpoints are authenticated except to create user and to login
+ and the api root page. So to query the API endpoints you must be register to get jwt to authorize you to 
+ query those endpoints. Phew! That was alot. Thanks for staying up to this point.`;
+
+  return res.status(200).json({
+    status: 'success',
+    message,
+  });
+});
+
 // User end points
 // Create user
 router.post('/users', userController.create);
