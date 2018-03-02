@@ -1,0 +1,29 @@
+{
+  "name": "nodejs-todo-api",
+  "version": "1.0.0",
+  "description": "A CRUD api built with Postgresql, express, redis and Nodejs.",
+  "main": "index.js",
+  "author": "Dikaeinstein",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "run-dev": "nodemon server.js"
+  },
+  "devDependencies": {
+    "dotenv": "^5.0.0",
+    "eslint": "^4.17.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "nodemon": "^1.15.1"
+  },
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.1",
+    "morgan": "^1.9.0",
+    "pg-promise": "^8.1.1",
+    "redis": "^2.8.0"
+  }
+}

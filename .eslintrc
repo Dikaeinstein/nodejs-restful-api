@@ -1,0 +1,15 @@
+{
+  "env": {
+    "node": true
+  },
+  "extends": "airbnb-base",
+  "rules": {
+    "linebreak-style": 0,
+    "import/no-extraneous-dependencies": 0,
+    "arrow-body-style": 0,
+    "no-param-reassign": 0,
+    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+    "no-shadow": ["error", { "allow": ["err"] }],
+    "no-unused-vars": ["erro", { "varsIgnorePattern": "result" }]
+  }
+}
