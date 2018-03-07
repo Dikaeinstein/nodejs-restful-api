@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node server.js",
     "start-dev": "nodemon server.js",
-    "postinstall": "node node_modules/db-migrate/bin/db-migrate db:create nodejs-todo-rest-api && node node_modules/db-migrate/bin/db-migrate up"
+    "postinstall": "node node_modules/db-migrate/bin/db-migrate up"
   },
   "devDependencies": {
     "dotenv": "^5.0.0",
