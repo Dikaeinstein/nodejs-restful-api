@@ -11,8 +11,8 @@ const {
 const todoController = {
   // insert todo
   create(req, res, next) {
-    const { title } = req.body;
-    if (!title) {
+    const { title, userId } = req.body;
+    if (!title || !userId) {
       const error = createError({
         message: 'Bad Request',
         statusCode: 400,
@@ -21,7 +21,7 @@ const todoController = {
       return next(error);
     }
 
-    return db.none('INSERT INTO todos(title) VALUES($1)', [title])
+    return db.none('INSERT INTO todos(title, user_id) VALUES($1, $2)', [title, userId])
       .then(() => res.status(200).json({
         status: 'success',
         message: 'todo successfully created',
@@ -95,10 +95,10 @@ const todoController = {
   },
   // update todo
   update(req, res, next) {
-    const { title } = req.body;
+    const { title, userId } = req.body;
     const { todoId } = req.params;
 
-    if (!title || !todoId) {
+    if (!title || !todoId || !userId) {
       const error = createError({
         message: 'Bad request',
         statusCode: 400,
@@ -107,7 +107,7 @@ const todoController = {
       return next(error);
     }
 
-    return db.none('UPDATE todos SET title = $1 WHERE todos.id = $2', [title, todoId])
+    return db.none('UPDATE todos SET title = $1, user_id = $2 WHERE todos.id = $3', [title, userId, todoId])
       .then(() => res.status(200).json({
         status: 'success',
         message: 'Successfully updated todo',

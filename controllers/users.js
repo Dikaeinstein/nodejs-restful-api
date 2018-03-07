@@ -36,7 +36,7 @@ const userController = {
           const token = jwt.sign(
             { id: user.id },
             process.env.SECRET,
-            { expiresIn: 86400 },
+            { expiresIn: '1 day' },
           );
 
           res.status(200)
@@ -44,6 +44,7 @@ const userController = {
             .json({
               status: 'success',
               message: 'user successfully created',
+              token,
             });
         })
         .catch((err) => {
@@ -66,7 +67,6 @@ const userController = {
           message: 'Retrieved all users',
           data,
         };
-        cache.cacheData(req, resObj);
 
         return res.status(200).json(resObj);
       })
@@ -109,7 +109,7 @@ const userController = {
           const token = jwt.sign(
             { id: user.id },
             process.env.SECRET,
-            { expiresIn: 86400 },
+            { expiresIn: '1 day' },
           );
 
           return res.status(200)
@@ -117,6 +117,7 @@ const userController = {
             .json({
               status: 'success',
               message: 'successfully logged in',
+              token,
             });
         });
       })
