@@ -1,9 +1,13 @@
 {
   "env": "dev",
-  "addIfNotExists": {
-    "ssl": true
-  },
-  "overwrite": {
-    "native": true
+  "default": "pg",
+  "pg": { 
+    "ENV": "DATABASE_URL",
+    "addIfNotExists": {
+      "ssl": true
+    },
+    "overwrite": {
+      "native": true
+    }
   }
 }
