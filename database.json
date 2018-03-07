@@ -1,14 +1,13 @@
 {
   "defaultEnv": "dev",
   "dev": {
-      "pg": { 
-      "ENV": "DATABASE_URL",
-      "addIfNotExists": {
-        "ssl": true
-      },
-      "overwrite": {
-        "native": true
-      }
+    "driver": "pg",
+    "ENV": "DATABASE_URL",
+    "addIfNotExists": {
+      "sslmode": "required"
+    },
+    "overwrite": {
+      "native": true
     }
   }
 }
